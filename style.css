@@ -1,0 +1,126 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #111;
+    color: #eee;
+  }
+  
+  #controls {
+    background: #222;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  #controls label {
+    color: #ddd;
+  }
+  
+  .toggle {
+    padding: 5px 10px;
+    border: 1px solid #aaa;
+    background: #333;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .toggle.active {
+    background: #4caf50;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    gap: 10px;
+    padding: 10px;
+    justify-items: start;
+  }
+  
+  .tile-canvas {
+    width: 200px;
+    height: auto;
+    border: 1px solid #ccc;
+    background: #000;
+  }
+  
+  #mainContainer {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  #dashboard {
+    flex: 0 0 300px;
+    background: #222;
+    padding: 10px;
+    border-left: 2px solid #333;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  #magnifierCanvas {
+    width: 100%;
+    height: auto;
+    border: 1px solid #444;
+    background: black;
+  }
+  
+  #channelSelector {
+    display: flex;
+    gap: 5px;
+  }
+  
+  #channelSelector button {
+    flex: 1;
+    padding: 5px;
+    background: #444;
+    color: white;
+    cursor: pointer;
+    border: 1px solid #666;
+  }
+  
+  #channelSelector button.active {
+    background: #4caf50;
+  }
+  
+  .info {
+    background: #1e1e1e;
+    color: white;
+    padding: 10px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    border-top: 1px solid #444;
+  }
+  
+  /* Container for the zoom comparisons */
+  #nucleusZoomComparisons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Each row is displayed as a flex row */
+  .zoom-row {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+  }
+  
+  .channel-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+  }
+  
+  .channel-group canvas {
+    width: 100%;
+    border: 1px solid #444;
+    background: black;
+    height: auto;
+  }
+  

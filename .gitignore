@@ -1,6 +1,4 @@
 __pycache__/
-*.npy
-*.png
 *.jpg
 *.tiff
 .env
