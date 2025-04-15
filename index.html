@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Foci Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="controls">
+    <label>Dataset:
+      <select id="datasetSelect">
+        <option value="A1">A1</option>
+        <option value="A2">A2</option>
+      </select>
+    </label>
+    <label style="display: none;">
+      Tile:
+      <select id="tileSelect"></select>
+    </label>      
+    <label>Method:
+      <select id="methodSelect">
+        <option value="rad51">RAD51</option>
+        <option value="prob">Probabilities</option>
+      </select>
+    </label>
+    <label>Threshold:
+      <select id="thresholdSelect">
+        <option value="0.15">0.15</option>
+        <option value="0.2" selected>0.2</option>
+        <option value="0.25">0.25</option>
+        <option value="0.3">0.3</option>
+        <option value="0.365">0.365</option>
+        <option value="0.4">0.4</option>
+      </select>
+    </label>
+    <label>Display Image:
+      <select id="displayMode">
+        <option value="rad51">RAD51</option>
+        <option value="dapi">DAPI</option>
+      </select>
+    </label>
+    <button id="toggleFoci" class="toggle active">Foci</button>
+    <button id="toggleLabels" class="toggle active">Labels</button>
+    <button id="toggleOutlines" class="toggle active">Outlines</button>
+    <button id="toggleInfo" class="toggle active">Info Panel</button>
+    <button id="clearSelection">Clear Info Lock</button>
+  </div>
+
+  <div id="mainContainer">
+    <!-- Tile grid on the left -->
+    <div id="tileGrid" class="grid-container"></div>
+    
+    <!-- Single dashboard on the right -->
+    <div id="dashboard">
+      <canvas id="magnifierCanvas"></canvas>
+      
+      <div id="channelSelector">
+        <button id="zoomRad51" class="active">RAD51</button>
+        <button id="zoomDapi">DAPI</button>
+      </div>
+      
+      <!-- Info panel for nucleus data -->
+      <div id="infoPanel" class="info"></div>
+  
+      <!-- Zoom comparisons arranged in two rows -->
+      <div id="nucleusZoomComparisons">
+        <div class="zoom-row" id="rawRow">
+          <div class="channel-group">
+            <h4>RAD51 - Raw</h4>
+            <canvas id="rad51Raw"></canvas>
+          </div>
+          <div class="channel-group">
+            <h4>DAPI - Raw</h4>
+            <canvas id="dapiRaw"></canvas>
+          </div>
+        </div>
+        <div class="zoom-row" id="annotatedRow">
+          <div class="channel-group">
+            <h4>RAD51 - With Foci</h4>
+            <canvas id="rad51Annotated"></canvas>
+          </div>
+          <div class="channel-group">
+            <h4>DAPI - With Foci</h4>
+            <canvas id="dapiAnnotated"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
