@@ -2,6 +2,7 @@
   "tile_id": "tile_14",
   "rad51_image": "images/A1/rad51/tile_14.png",
   "dapi_image": "images/A1/dapi/tile_14.png",
+  "h2ax_image": "images/A1/h2ax/tile_14.png",
   "nuclei": [
     {
       "region_id": 1,

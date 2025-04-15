@@ -52,39 +52,64 @@
     
     <!-- Single dashboard on the right -->
     <div id="dashboard">
-      <canvas id="magnifierCanvas"></canvas>
-      
-      <div id="channelSelector">
-        <button id="zoomRad51" class="active">RAD51</button>
-        <button id="zoomDapi">DAPI</button>
-      </div>
       
       <!-- Info panel for nucleus data -->
       <div id="infoPanel" class="info"></div>
   
       <!-- Zoom comparisons arranged in two rows -->
-      <div id="nucleusZoomComparisons">
-        <div class="zoom-row" id="rawRow">
-          <div class="channel-group">
-            <h4>RAD51 - Raw</h4>
-            <canvas id="rad51Raw"></canvas>
-          </div>
-          <div class="channel-group">
-            <h4>DAPI - Raw</h4>
-            <canvas id="dapiRaw"></canvas>
-          </div>
+      <label>Display Image:
+        <select id="displayMode">
+          <option value="rad51">RAD51</option>
+          <option value="dapi">DAPI</option>
+          <option value="h2ax">H2AX</option>
+        </select>
+      </label>
+      
+      <!-- Dashboard Section -->
+      <div id="dashboard">
+        <canvas id="magnifierCanvas"></canvas>
+        
+        <div id="channelSelector">
+          <button id="zoomRad51" class="active">RAD51</button>
+          <button id="zoomDapi">DAPI</button>
+          <button id="zoomH2ax">H2AX</button>
         </div>
-        <div class="zoom-row" id="annotatedRow">
-          <div class="channel-group">
-            <h4>RAD51 - With Foci</h4>
-            <canvas id="rad51Annotated"></canvas>
+        
+        <!-- Info Panel -->
+        <div id="infoPanel" class="info"></div>
+      
+        <!-- Zoom Comparisons: Two Rows – First row raw, second row annotated -->
+        <div id="nucleusZoomComparisons">
+          <div class="zoom-row" id="rawRow">
+            <div class="channel-group">
+              <h4>RAD51</h4>
+              <canvas id="rad51Raw"></canvas>
+            </div>
+            <div class="channel-group">
+              <h4>DAPI</h4>
+              <canvas id="dapiRaw"></canvas>
+            </div>
+            <div class="channel-group">
+              <h4>H2AX</h4>
+              <canvas id="h2axRaw"></canvas>
+            </div>
           </div>
-          <div class="channel-group">
-            <h4>DAPI - With Foci</h4>
-            <canvas id="dapiAnnotated"></canvas>
+          <div class="zoom-row" id="annotatedRow">
+            <div class="channel-group">
+              <canvas id="rad51Annotated"></canvas>
+            </div>
+            <div class="channel-group">
+              <canvas id="dapiAnnotated"></canvas>
+            </div>
+            <div class="channel-group">
+              <canvas id="h2axAnnotated"></canvas>
+            </div>
           </div>
         </div>
       </div>
+      
+      </div>
+
     </div>
   </div>
 

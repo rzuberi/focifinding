@@ -103,19 +103,19 @@ body {
     gap: 20px;
   }
   
-  /* Each row is displayed as a flex row */
   .zoom-row {
     display: flex;
     gap: 10px;
-    justify-content: space-between;
+    align-items: flex-start; /* ensures all channel-groups align at their top edge */
   }
   
-  .channel-group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    flex: 1;
+  .channel-group canvas {
+    width: 140px; 
+    height: 140px;
+    border: 1px solid #444;
+    background: black;
   }
+  
   
   .channel-group canvas {
     width: 100%;

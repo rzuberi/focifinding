@@ -2,7 +2,7 @@ from skimage import io
 import os
 
 # Load the composite image
-img = io.imread('/home/zuberi01/Downloads/Rad51_A1.png')  # or .png, .jpg, etc.
+img = io.imread('/home/zuberi01/Downloads/H2AX_A1.png')  # or .png, .jpg, etc.
 
 # Define grid dimensions
 rows, cols = 3, 5
