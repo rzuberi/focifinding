@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let nucleiRegions = [];   // stores each nucleus's bounding box and data for hover/click detection
 
   // Fetch the tile index and preload JSON data for each tile.
-  fetch("data/index.json")
+  fetch(`data/${dataset}/index.json`)
     .then(res => res.json())
     .then(index => {
       currentTileList = index[dataset] || [];
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   datasetSelect.addEventListener("change", e => {
     dataset = e.target.value;
-    fetch("data/index.json")
+    fetch(`data/${dataset}/index.json`)
       .then(res => res.json())
       .then(index => {
         currentTileList = index[dataset] || [];
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Preload JSON for each tile.
   function preloadAndRender(tileList) {
     const promises = tileList.map(tileId => {
-      return fetch(`data/${tileId}.json`)
+      return fetch(`data/${dataset}/${tileId}.json`)
         .then(res => res.json())
         .then(data => { tileCache.set(tileId, data); });
     });
