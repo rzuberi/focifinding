@@ -8,11 +8,11 @@ from skimage.measure import regionprops
 import json
 
 # --- Configuration ---
-base_dir = "images/A1"
+base_dir = "images/B1"
 rad51_dir = os.path.join(base_dir, "rad51")
 dapi_dir = os.path.join(base_dir, "dapi")
 seg_dir = os.path.join(base_dir, "dapi")
-output_json_dir = "data"
+output_json_dir = "data/B1"
 os.makedirs(output_json_dir, exist_ok=True)
 
 rad51_thresholds = [0.15, 0.2, 0.25]
@@ -80,7 +80,34 @@ for tile_filename in rad51_tiles:
     else:
         prob_norm = None
 
-    seg = np.load(seg_path, allow_pickle=True).item()['masks']
+    loaded = np.load(seg_path, allow_pickle=True)
+    # if it came in as an object array wrapping a dict:
+    if isinstance(loaded, np.ndarray) and loaded.dtype == object:
+        loaded = loaded.item()
+
+    # if that dict has a 'masks' key, pull it out
+    if isinstance(loaded, dict) and 'masks' in loaded:
+        seg_candidate = loaded['masks']
+    else:
+        seg_candidate = loaded
+
+    # Now coerce into a 2D int label image:
+    if isinstance(seg_candidate, dict):
+        # e.g. { label1: mask1_array, label2: mask2_array, … }
+        # build a full label image from those masks
+        labels = list(seg_candidate.keys())
+        # assume all masks share same shape
+        h, w = seg_candidate[labels[0]].shape
+        seg = np.zeros((h, w), dtype=int)
+        for lab, mask in seg_candidate.items():
+            seg[mask.astype(bool)] = int(lab)
+    else:
+        seg = np.array(seg_candidate, dtype=int)
+
+    # if it somehow ended up 3-dimensional, drop extras:
+    if seg.ndim > 2:
+        seg = seg[..., 0]
+
     regions = regionprops(seg)
 
     nuclei_data = []

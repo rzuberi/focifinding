@@ -11,7 +11,7 @@ import cv2
 import random
 
 # --- Configuration ---
-base_dir = "images/A1"
+base_dir = "images/B1"
 rad51_dir = os.path.join(base_dir, "rad51")
 dapi_dir = os.path.join(base_dir, "dapi")
 seg_dir = os.path.join(base_dir, "dapi")
@@ -99,7 +99,7 @@ for first_image in all_tiles:
             continue
 
         data = {
-            "image_id": "A1",
+            "image_id": "B1",
             "tile_id": tile_id,
             "region_id": region_id,
             "area": area
